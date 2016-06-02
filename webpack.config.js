@@ -25,8 +25,8 @@ module.exports = {
     ],
 
     externals: {
-        'react': 'React',
-        'react-dom': 'ReactDOM',
+        // 'react': 'React',
+        // 'react-dom': 'ReactDOM',
         'oauthio-web': 'OAuth'
     },
 
@@ -35,7 +35,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loaders: ['babel-loader'] }
+                loaders: ['react-hot', 'babel'] }
         ]
     }
 };

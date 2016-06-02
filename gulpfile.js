@@ -21,8 +21,7 @@ const paths = {
 
 const libs = {
     js: [
-        'node_modules/oauthio-web/dist/oauth.js',
-        'node_modules/react/dist/react.js'
+        'node_modules/oauthio-web/dist/oauth.js'
     ],
     css: [
 
@@ -36,8 +35,7 @@ const jslibs = {
     },
     dev: {
         start: [
-            'libs/js/oauth.js',
-            'libs/js/react.js'
+            'libs/js/oauth.js'
         ],
         end: []
     }
@@ -112,12 +110,10 @@ gulp.task('watch', ['devbuild'], () => {
                 spa
             ]
         },
-
         files: [
-            'src/css/*.css',
-            paths.index
         ]
     });
+    gulp.watch(paths.index).on('change', browserSync.reload);
 });
 
 gulp.task('webpack:build', function(callback) {
