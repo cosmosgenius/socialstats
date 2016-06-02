@@ -29,6 +29,7 @@
     "gulp": "^3.9.1",
     "gulp-html-replace": "^1.6.0",
     "gulp-util": "^3.0.7",
+    "oauthio-web": "^0.5.2",
     "run-sequence": "^1.2.1",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",

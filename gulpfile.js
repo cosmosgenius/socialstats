@@ -20,6 +20,7 @@ const paths = {
 
 const libs = {
     js: [
+        'node_modules/oauthio-web/dist/oauth.js',
         'node_modules/react/dist/react.js'
     ],
     css: [
@@ -34,6 +35,7 @@ const jslibs = {
     },
     dev: {
         start: [
+            'libs/js/oauth.js',
             'libs/js/react.js'
         ],
         end: []
@@ -117,13 +119,38 @@ gulp.task('watch', ['devbuild'], () => {
     });
 });
 
+gulp.task('webpack:build', function(callback) {
+    // modify some webpack config options
+    var myConfig = Object.create(webpackConfig);
+    myConfig.plugins = myConfig.plugins.concat(
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin()
+    );
+
+    // run webpack
+    webpack(myConfig, function(err, stats) {
+        if(err) throw new gutil.PluginError('webpack:build', err);
+        gutil.log('[webpack:build]', stats.toString({
+            colors: true
+        }));
+        callback();
+    });
+});
+
+
 gulp.task('default', ['watch']);
 
 gulp.task('build', (cb) => {
     is_prod = true;
     gutil.log(gutil.colors.green('Building for production'));
     runSequence(
-        'indexhtml',
+        'html',
+        'webpack:build',
         cb
     );
 });

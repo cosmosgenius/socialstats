@@ -26,7 +26,8 @@ module.exports = {
 
     externals: {
         'react': 'React',
-        'react-dom': 'ReactDOM'
+        'react-dom': 'ReactDOM',
+        'oauthio-web': 'OAuth'
     },
 
     module: {
