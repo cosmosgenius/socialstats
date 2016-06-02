@@ -30,7 +30,11 @@ const libs = {
 
 const jslibs = {
     prod: {
-        start: [],
+        start: [
+            'https://cdnjs.cloudflare.com/ajax/libs/oauth-io/0.5.2/oauth.min.js',
+            'https://fb.me/react-15.1.0.min.js',
+            'https://fb.me/react-dom-15.1.0.js'
+        ],
         end: []
     },
     dev: {
@@ -62,7 +66,7 @@ gulp.task('copylibs', copytask(libs.js,
 ));
 
 gulp.task('html', () => {
-    let dest = paths.dev;
+    let dest = is_prod ? '.' : paths.dev;
 
     let env = is_prod ? 'prod' : 'dev';
 
