@@ -9,6 +9,7 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackConfig = require('./webpack.config');
+const webpackConfigProd = require('./webpack.config.prod');
 
 let bundler = webpack(webpackConfig);
 let is_prod = false;
@@ -121,16 +122,7 @@ gulp.task('watch', ['devbuild'], () => {
 
 gulp.task('webpack:build', function(callback) {
     // modify some webpack config options
-    var myConfig = Object.create(webpackConfig);
-    myConfig.plugins = myConfig.plugins.concat(
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        }),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin()
-    );
+    var myConfig = Object.create(webpackConfigProd);
 
     // run webpack
     webpack(myConfig, function(err, stats) {
