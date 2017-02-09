@@ -1,14 +1,18 @@
 {
     "root": true,
     "parserOptions": {
-        "ecmaVersion": 6
+        "ecmaVersion": 8,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
     },
     "env": {
         "node": true,
         "browser": true,
         "es6": true
     },
-    "extends": ["eslint:recommended"],
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
     "rules": {
         "indent": [
             "warn",

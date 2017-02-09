@@ -1,0 +1,44 @@
+{
+  "name": "twitterstats",
+  "version": "0.0.1",
+  "description": "Twitter stats analysis",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cosmosgenius/twitterstats.git"
+  },
+  "keywords": [
+    "twitter",
+    "analysis"
+  ],
+  "author": "Sharat M R",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cosmosgenius/twitterstats/issues"
+  },
+  "homepage": "https://github.com/cosmosgenius/twitterstats#readme",
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-react": "^6.16.0",
+    "eslint": "^3.12.2",
+    "eslint-plugin-react": "^6.8.0",
+    "jest": "^18.0.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
+  },
+  "dependencies": {
+    "dexie": "v2.0.0-beta.10",
+    "oauth-1.0a": "^2.0.0",
+    "react": "^15.4.1",
+    "react-addons-css-transition-group": "^15.4.1",
+    "react-addons-transition-group": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "reactstrap": "4.1.1"
+  }
+}
